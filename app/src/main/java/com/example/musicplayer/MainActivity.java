@@ -3,6 +3,7 @@ package com.example.musicplayer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //can also register in the manifest
+        IntentFilter intentFilter = new IntentFilter("android.intent.action.AIRPLANE_MODE");
+        AbuAirplaneModeReceiver br = new AbuAirplaneModeReceiver();
+        registerReceiver(br,intentFilter);
 
         startButt = findViewById(R.id.startButt);
         stopButt = findViewById(R.id.stopButt);

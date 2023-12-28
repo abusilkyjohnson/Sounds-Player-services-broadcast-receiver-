@@ -23,6 +23,15 @@
         </activity>
 
         <service android:name=".AbuCustomService"/>
+        <receiver
+            android:name=".AbuAirplaneModeReceiver"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.AIRPLANE_MODE"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 
